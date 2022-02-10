@@ -20,4 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/laboScene.unity
     guid: a8c8da14fdf3baf4b8743acfa163534f
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2ece6a86db34dbd44b0513ee412b4683,
+      type: 2}

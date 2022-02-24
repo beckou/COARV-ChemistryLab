@@ -21,5 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/laboScene.unity
     guid: a8c8da14fdf3baf4b8743acfa163534f
   m_configObjects:
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: d6bf667e722e8284eba86fc553479bd8,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2ece6a86db34dbd44b0513ee412b4683,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 639f0577733381b46af4fa49cbf7a22b,
       type: 2}

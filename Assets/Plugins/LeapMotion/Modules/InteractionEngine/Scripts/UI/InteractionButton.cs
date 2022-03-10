@@ -397,7 +397,6 @@ namespace Leap.Unity.Interaction {
           _lastDepressor = null;
         }
       }
-
     }
 
     /// <summary>

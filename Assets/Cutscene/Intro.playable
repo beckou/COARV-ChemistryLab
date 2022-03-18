@@ -1186,6 +1186,7 @@ MonoBehaviour:
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
+    m_ScenePreview: 1
   m_DurationMode: 0
   m_MarkerTrack: {fileID: -3709082698487152493}
 --- !u!114 &1130207252093537208
@@ -1952,7 +1953,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: Vue de dos
+    m_DisplayName: Vue de dos (1)
   - m_Version: 1
     m_Start: 5
     m_ClipIn: 0
@@ -1985,7 +1986,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: "Int\xE9rieur Piece"
+    m_DisplayName: "Int\xE9rieur Piece (1)"
   m_Markers:
     m_Objects: []
 --- !u!114 &4725934852570577463

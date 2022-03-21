@@ -54,3 +54,7 @@ crashlytics-build.properties
 .idea/
 Assets/SteamVR/Resources/SteamVR_Settings.asset.meta
 Assets/SteamVR/Resources/SteamVR_Settings.asset
+
+# System Generated
+.DS_Store
+

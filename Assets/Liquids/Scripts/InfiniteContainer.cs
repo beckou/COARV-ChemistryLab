@@ -8,32 +8,39 @@ public class InfiniteContainer : MonoBehaviour
 
     public GameObject streamObject;
 
+    public GameObject liquidContent;
+
+    protected Liquid liquid;
+
     public float maxOutput;
 
     public Color liquidColour;
 
-    private bool isPouring;
+    public float innerVolume;
 
-    private Transform model;
+    protected bool isPouring;
 
-    private Stream currentStream;
+    protected Transform model;
+
+    protected Stream currentStream;
     // Start is called before the first frame update
     void Start()
     {
         model = transform.parent;
         isPouring = false;
+        GenerateLiquid();
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool shouldPour = TiltAngle() < thresholdAngle;
+        bool shouldPour = TiltAngle() > thresholdAngle;
 
         if(isPouring != shouldPour)
         {
             isPouring = shouldPour;
 
-            if(isPouring)
+            if(!isPouring)
             {
                 StartPouring();
             } else
@@ -51,7 +58,8 @@ public class InfiniteContainer : MonoBehaviour
 
     protected void StopPouring()
     {
-        currentStream.End();
+        if(currentStream != null)
+            currentStream.End();
         currentStream = null;
     }
 
@@ -60,7 +68,7 @@ public class InfiniteContainer : MonoBehaviour
         return model.up.y * Mathf.Rad2Deg;
     }
 
-    private Stream CreateStream()
+    protected Stream CreateStream()
     {
         GameObject stream = Instantiate(streamObject, transform.position, Quaternion.identity, model);
         Stream res = stream.GetComponent<Stream>();
@@ -69,9 +77,17 @@ public class InfiniteContainer : MonoBehaviour
         return res;
     }
 
-    public void AddLiquid(float volume, Color color)
+    protected void GenerateLiquid()
     {
-
+        //liquid.maxVolume = innerVolume;
+        //liquid.AddLiquid(innerVolume, liquidColour);
+        liquidContent.GetComponent<Renderer>().material.color = liquidColour;
     }
+
+    public virtual void AddLiquid(float volume, Color colour)
+    {
+        
+    }
+
 
 }

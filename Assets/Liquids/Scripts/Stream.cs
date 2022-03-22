@@ -15,6 +15,8 @@ public class Stream : MonoBehaviour
 
     private Vector3 targetPosition;
 
+    private float randomColourModifier = 1.2f;
+
 
     private float dT;
 
@@ -32,7 +34,12 @@ public class Stream : MonoBehaviour
 
         lineRenderer.startColor = Colour;
         lineRenderer.endColor = Colour;
-        splashes.startColor = Colour;
+
+
+        ParticleSystem.MainModule mainModule = splashes.main;
+        Color secondColour = new Color(RandomAround(0, 1, Colour.r, randomColourModifier), RandomAround(0, 1, Colour.g, randomColourModifier), RandomAround(0, 1, Colour.b, randomColourModifier), 1);
+        mainModule.startColor = new ParticleSystem.MinMaxGradient(Colour, secondColour);
+        //splashes.startColor = Colour;
 
         lineRenderer.startWidth /= 30;
         lineRenderer.endWidth /= 30;
@@ -94,9 +101,16 @@ public class Stream : MonoBehaviour
 
     private void AddLiquidToPotentialContainer(Collider collider)
     {
-        if (collider && collider.gameObject.GetComponent<InfiniteContainer>())
+        if (collider && collider.transform.parent.GetComponentInChildren<InfiniteContainer>())
         {
-            collider.gameObject.GetComponent<InfiniteContainer>().AddLiquid(Output * dT, Colour);
+            collider.transform.parent.GetComponentInChildren<InfiniteContainer>().AddLiquid(Output * dT, Colour);
+            /*if(collider.gameObject.GetComponent<Liquid>())
+            {
+                collider.transform.parent.GetComponentInChildren<InfiniteContainer>().AddLiquid(Output * dT, Colour);
+            }
+            if (collider.gameObject.GetComponentInChildren<InfiniteContainer>()) {
+                collider.gameObject.GetComponentInChildren<InfiniteContainer>().AddLiquid(Output * dT, Colour);
+            }*/
         }
     }
 
@@ -127,5 +141,15 @@ public class Stream : MonoBehaviour
             splashes.gameObject.SetActive(isHitting);
             yield return null;
         }
+    }
+
+    private float RandomAround(float min, float max, float value, float delta)
+    {
+        value += Random.Range(-delta, delta);
+        if (value < min)
+            return min;
+        if (value > max)
+            return max;
+        return value;
     }
 }

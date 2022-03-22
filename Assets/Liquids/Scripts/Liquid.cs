@@ -63,8 +63,10 @@ public class Liquid : MonoBehaviour
         {
             currentColour += entry.Key * entry.Value / currentVolume;
         }
-        transform.localScale = filling * Vector3.one;
-        GetComponent<Renderer>().material.color = currentColour;
+        //transform.localScale = filling * Vector3.one;
+        //GetComponent<Renderer>().material.color = currentColour;
+        material.SetColor("_Color", currentColour);
+        material.SetVector("_Plane", CalculatePlane());
     }
 
     public void AddLiquid(float volume, Color colour)
@@ -85,10 +87,10 @@ public class Liquid : MonoBehaviour
 
     protected Vector4 CalculatePlane()
     {
-        Plane plane = new Plane(transform.up, transform.position);
         float liquidHeight = -bounds.extents.y + filling * bounds.size.y;
+        Plane plane = new Plane(transform.up, transform.position + liquidHeight * Vector3.up);
 
-        Vector4 planeRepresentation = new Vector4(plane.normal.x, plane.normal.y, plane.normal.z, liquidHeight);
+        Vector4 planeRepresentation = new Vector4(plane.normal.x, plane.normal.y, plane.normal.z, plane.distance);
         return planeRepresentation;
     }
 }

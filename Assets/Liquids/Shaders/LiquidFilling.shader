@@ -2,12 +2,7 @@ Shader "Custom/LiquidFilling" {
     //show values to edit in inspector
     Properties{
         _Color("Tint", Color) = (0, 0, 0, 0)
-        _MainTex("Texture", 2D) = "white" {}
-        _Smoothness("Smoothness", Range(0, 1)) = 0
-        _Metallic("Metalness", Range(0, 1)) = 0
         [HDR]_Emission("Emission", color) = (0,0,0)
-
-        [HDR]_CutoffColor("Cutoff Color", Color) = (1,0,0,0)
     }
 
         SubShader{
@@ -26,20 +21,14 @@ Shader "Custom/LiquidFilling" {
             #pragma surface surf Standard fullforwardshadows
             #pragma target 3.0
 
-            sampler2D _MainTex;
             fixed4 _Color;
 
-            half _Smoothness;
-            half _Metallic;
             half3 _Emission;
 
             float4 _Plane;
 
-            float4 _CutoffColor;
-
             //input struct which is automatically filled by unity
             struct Input {
-                float2 uv_MainTex;
                 float3 worldPos;
                 float facing : VFACE;
             };
@@ -55,12 +44,8 @@ Shader "Custom/LiquidFilling" {
                 float facing = i.facing * 0.5 + 0.5;
 
                 //normal color stuff
-                fixed4 col = tex2D(_MainTex, i.uv_MainTex);
-                col *= _Color;
-                o.Albedo = col.rgb * facing;
-                o.Metallic = _Metallic * facing;
-                o.Smoothness = _Smoothness * facing;
-                o.Emission = lerp(_CutoffColor, _Emission, facing);
+                o.Albedo = _Color.rgb * facing;
+                o.Emission = lerp(_Color, _Emission, facing);
             }
             ENDCG
         }

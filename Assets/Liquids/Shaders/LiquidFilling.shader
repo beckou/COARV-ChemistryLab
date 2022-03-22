@@ -1,5 +1,6 @@
 Shader "Custom/LiquidFilling" {
     //show values to edit in inspector
+    // Clips a GameObject past a given plane
     Properties{
         _Color("Tint", Color) = (0, 0, 0, 0)
         [HDR]_Emission("Emission", color) = (0,0,0)

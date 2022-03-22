@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thresholdAngle: 45
-  streamObject: {fileID: 2224435065219010527, guid: 16fff891cb21fbe4e80b2ad44c4822e3,
+  streamPrefab: {fileID: 2224435065219010527, guid: 16fff891cb21fbe4e80b2ad44c4822e3,
     type: 3}
   liquidContent: {fileID: 0}
   maxOutput: 0.1

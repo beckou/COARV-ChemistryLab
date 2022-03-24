@@ -1,0 +1,26 @@
+# Pour les récipients infinis
+1	Rajouter le prefab "Infinite Container" dans l’arborescence du récipient
+2	Placer le prefab à l’endroit où le liquide va sortir
+3	Régler les paramètres du prefab à sa convenance : Threshold Angle, Max Output et Liquid Colour au minimum, Liquid Content est un 
+		GameObject qui remplit le récipient et sert à simuler le liquide (voir la scène de démo) donc ici il est optionnel
+
+
+# Pour les récipients finis
+1	Points 1, 2 et 3 des récipients infinis à refaire (avec le prefab Finite Container, et penser à ajuster le volume interne)
+2	Avoir un Liquid Content dans l’arborescence auquel on affecte en plus le matériau "Liquid content with clipping" et le script "Liquid"
+3	Placer un objet vide avec juste un collider (box, sphere, mesh, peu importe) au fond du récipient, il servira de repère pour verser
+		les liquides à l’intérieur
+
+
+# Note supplémentaire
+Il est possible de changer la forme des particules en changeant la texture du matériau "Éclaboussures". Quelques textures basiques sont fournies 
+dans le dossier correspondant.
+
+
+# Éventuellement pour le futur
+	- Calculer automatiquement le volume du mesh du liquide (s’il existe) au chargement de la scène,
+		mais seulement dans le cas où ça n’impacte pas les performances
+	- Proposer une solution pour générer un mesh de liquide si on a seulement le mesh du récipient. Ça pourra passer par un script 
+		temporaire qu’on fait tourner une fois pour générer le mesh de liquide, qu’on enregistre ensuite dans les prefabs avant de 
+            quitter le mode play
+

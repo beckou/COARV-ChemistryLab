@@ -15,7 +15,8 @@ public class equation1 : MonoBehaviour
     // Contenu liquide dans le récipient
     protected Liquid liquidContent;
     // Volume de liquide minimal requis pour valider l’énigme
-    protected const float minVolume = 0.1f;
+    protected const float minGoodLiquidVolume = 0.1f;
+    protected const float maxBadLiquidVolume = 0.01f;
 
     // Start is called before the first frame update
     void Start()
@@ -71,20 +72,20 @@ public class equation1 : MonoBehaviour
         // Un liquide est caractérisé par sa couleur.
         bool liquideBleuOk = false;
         bool liquideRoseOk = false;
-        bool liquideVertOk = false;
+        bool liquideVertOk = true;
 
         foreach (KeyValuePair<Color, float> lv in liquidContent.ContainedLiquids)
         {
-            if (lv.Key == flask1.GetComponentInChildren<InfiniteContainer>().liquidColour && lv.Value > minVolume) {
+            if (lv.Key == flask1.GetComponentInChildren<InfiniteContainer>().liquidColour && lv.Value > minGoodLiquidVolume) {
                 liquideBleuOk = true;
             }
 
-            if (lv.Key == flask2.GetComponentInChildren<InfiniteContainer>().liquidColour && lv.Value > minVolume) {
+            if (lv.Key == flask2.GetComponentInChildren<InfiniteContainer>().liquidColour && lv.Value > minGoodLiquidVolume) {
                 liquideRoseOk = true;
             }
 
-            if (lv.Key == flask3.GetComponentInChildren<InfiniteContainer>().liquidColour && lv.Value > minVolume) {
-                liquideVertOk = true;
+            if (lv.Key == flask3.GetComponentInChildren<InfiniteContainer>().liquidColour && lv.Value > maxBadLiquidVolume) {
+                liquideVertOk = false;
             }
         }
 

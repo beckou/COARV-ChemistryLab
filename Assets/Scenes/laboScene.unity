@@ -4450,6 +4450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c204f12c44bd9094bbc4c68e394d6615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equationContainer: {fileID: 1526661293}
 --- !u!4 &1518962170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4936635111863572, guid: 33aa3234397faa044af73f4700427d62,
@@ -5378,6 +5379,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114214109697607436, guid: 29f49c4f87606ce47924a910b8793034,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114373427060449632, guid: 29f49c4f87606ce47924a910b8793034,
         type: 3}

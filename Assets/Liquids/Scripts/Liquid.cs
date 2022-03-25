@@ -42,6 +42,12 @@ public class Liquid : MonoBehaviour
 
     // Dimensions of the mesh
     protected Bounds bounds;
+
+
+    public IDictionary<Color, float> ContainedLiquids
+    {
+        get{ return containedLiquids; }
+    }
     #endregion
 
 

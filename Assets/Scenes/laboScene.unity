@@ -646,6 +646,7 @@ GameObject:
   - component: {fileID: 276027505}
   - component: {fileID: 276027504}
   - component: {fileID: 276027503}
+  - component: {fileID: 276027506}
   m_Layer: 0
   m_Name: TempCursor
   m_TagString: Untagged
@@ -661,7 +662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276027501}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.2178, y: -0.0131, z: 0.0672}
+  m_LocalPosition: {x: -0.2178, y: -0.0131, z: 0.0827}
   m_LocalScale: {x: 0.01, y: 0.009999999, z: 0.010000001}
   m_Children: []
   m_Father: {fileID: 1451423027}
@@ -729,6 +730,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276027501}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &276027506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276027501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5269e578ebde5a547baa82c3500db98c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aColorer: {fileID: 0}
+  myRenderer: {fileID: 0}
+  myColor: {r: 0, g: 0, b: 0, a: 0}
+  coloration_rouge: 0
+  position_max: 0.125
+  position_min: 0.065
 --- !u!4 &294528474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 428928, guid: 73ac470d3d909d645a6c89a4664b6849,

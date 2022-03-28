@@ -58,6 +58,7 @@ Bon courage pour cette mission...
 ## Détails techniques
 
 - Le développement a été effectué avec Unity version 2020.3.22f1.
+- La version de Steam est 2.7.3.
 - Nous utilisons le Leap Motion avec le plugin version 4.9.1.
   La mise à jour depuis les versions précédentes nécessitait une version inférieure à la version 5 , car des fonctionnalités précédentes utilisées ne sont plus disponibles dans les version supérieures. Une mise à jour vers ces versions superieures est une tâche qui devra sûrement être effectuée, la version actuelle permettant l'utilisation des méthodes anciennes comme nouvelles.
 - Nous utilisons un casque valve index pour tester notre application. Celui ci a l'avantage de présenter un emplacement permettant de poser le Leap.

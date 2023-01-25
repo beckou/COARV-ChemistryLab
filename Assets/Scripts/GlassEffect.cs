@@ -25,7 +25,7 @@ public class GlassEffect : MonoBehaviour
         }
     }*/
 
-    private void OnCollisionEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.layer == 10)
         {

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour
 {
-
+    public GameObject equationContainer;
+    protected equation1 equation;
     public static float timeLeft;
     public static float time = 100;
     AudioSource audioClock;
@@ -18,6 +19,11 @@ public class CountDown : MonoBehaviour
         text.text = "\n" + Mathf.Round(timeLeft);
         timeLeft = time;
         audioClock = GameObject.Find("Audio Clock").GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        equation = equationContainer.GetComponent<equation1>();
     }
 
     void Update()
@@ -34,6 +40,10 @@ public class CountDown : MonoBehaviour
         {
             timeLeft -= Time.deltaTime;
             text.text = "\n" + Mathf.Round(timeLeft);
+            if(equation.resolue)
+            {
+                SceneManager.LoadScene("victoireScene");
+            }
         }
     }
 }
